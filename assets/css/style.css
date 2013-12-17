@@ -114,7 +114,7 @@ input[type=text],input[type=password], input[type=submit],select{font-family: 'O
 .testimonl div{background:#eff6ff; border:solid 1px #e1e1e1; padding:16px 20px; color:#87a0c0; font-style:italic;}
 .testimonl .name{color:#1570a6; font-size:12px; font-weight:600; position:absolute; left:55px; bottom:-4px; background:url(../images//testi.png) no-repeat; padding:6px 0 0 47px;}
 @media screen and (min-width:0\0){.testimonl .name{bottom:-1px;}}
-.gallery{border:solid 2px #f8f8f8; clear:both; overflow:hidden; position:relative;}
+/*.gallery{border:solid 2px #f8f8f8; clear:both; overflow:hidden; position:relative;}
 .gallery a.btns{background:#f8f8f8; display:block; width:55px; float:left; text-align:center;}
 .gallery a.btns img{margin:80px 0 0 0;}
 .gallery a.left-arrw{position:absolute; top:0px; left:0px; bottom:0px;}
@@ -122,7 +122,7 @@ input[type=text],input[type=password], input[type=submit],select{font-family: 'O
 .gallery ul{float:left; margin:0 83px;}
 .gallery ul li{float:left; padding:23px 38px 23px 0;}
 .gallery ul li.last{padding:23px 0;}
-.gallery ul li img{float:left;}
+.gallery ul li img{float:left;}*/
 #footer{background:#0b2544 url(../images//footer.gif) repeat-x left bottom; border-top:solid 3px #265182; overflow:hidden;}
 .footer-inner{width:890px; margin:0 auto; padding:35px 0 0 0;}
 .block-1{float:left; width:335px; background:url(../images//footer-seps.gif) repeat-y right top; margin:0 50px 0 0;}
@@ -411,7 +411,11 @@ span.minwid select{border:1px solid #ccc; padding:2px; width:40px; font-size:12p
  color:#f2f2f2;
 }
 
-
+#login input:focus,#forgotPassword input:focus{
+    border-color: rgba(82,168,236,0.8);
+    outline: 0;
+    box-shadow:  0 0 15px rgba(82,168,236,0.8);
+}
 
 
 

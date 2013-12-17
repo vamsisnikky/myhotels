@@ -1,7 +1,7 @@
 <div id="banner-cicle">
     <div class="green-circle">
         <div align="center"><span class="grn-srch">Search</span></div>
-        <form action="" method="post">
+        <form action="hotel/search" method="post">
             <div class="row">
                 <select name="iCity" id="vCountry"  required>
                     <option value="" selected="" disabled="" />Select City
@@ -14,11 +14,11 @@
             <div class="row">
                 <div class="half-brick">
                     <label>Check In</label><br />
-                    <input type="text" name=""  id="checkin"/>
+                    <input type="text" name="checkin"  id="checkin"/>
                 </div>
                 <div class="half-brick no-margn">
                     <label>Check Out</label>
-                    <input type="text" name=""  id="checkout"/>
+                    <input type="text" name="checkout"  id="checkout"/>
                 </div>
             </div>
             <div class="row">
@@ -49,7 +49,7 @@
                     <select><option>5 Star to 1 Star</option></select>
                 </div>
             </div>
-            <div class="row" align="center"><input type="submit" name="" value="Check Availability" /></div>
+            <div class="row" align="center"><input type="submit" name="search" value="Check Availability" /></div>
         </form>
     </div>
 </div>
@@ -68,7 +68,7 @@
                         <div class="img-div">
                             <div class="hover-bordr"></div>
 
-                            <img src="./assets/upload/<?php echo $offers[0]['vImage']; ?>" alt="" />
+                            <img src="http://localhost/myhotels/assets/upload/<?php echo $offers[0]['vImage']; ?>" alt="" />
                         </div>
                         <h3>Special Offers</h3>
                         <h4><?php echo $offers[0]['vTitle']; ?> </h4>
@@ -79,7 +79,7 @@
             <li class="scnd">
                 <div class="img-div">
                     <div class="hover-bordr"></div>
-                    <img src="./assets/images/img-2.jpg" alt="" />
+                    <img src="http://localhost/myhotels/assets/images/img-2.jpg" alt="" />
                 </div>
                 <h3>Our Rooms</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur<br /> adipiscing elit.Ut ultrices leo eget <br />sem gravida ornare.</p>
@@ -87,7 +87,7 @@
             <li class="last no-margn">
                 <div class="img-div">
                     <div class="hover-bordr"></div>
-                    <img src="./assets/images/img-3.jpg" alt="" />
+                    <img src="http://localhost/myhotels/assets/images/img-3.jpg" alt="" />
                 </div>
                 <h3>Restaurant</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur<br /> adipiscing elit.Ut ultrices leo eget <br />sem gravida ornare.</p>
@@ -130,12 +130,11 @@
 
     <!-- Gallery-->
     <div class="gallery">
-        <a href="#" class="btns left-arrw"><img src="./assets/images/arrw-1.gif" alt="" /></a>
-        <a href="#" class="btns right-arrw"><img src="./assets/images/arrw-2.gif" alt="" /></a>
-        <ul>
-            <li><a href="#"><img src="./assets/images/img-4.jpg" alt="" /></a></li>
-            <li><a href="#"><img src="./assets/images/img-5.jpg" alt="" /></a></li>
-            <li class="last"><a href="#"><img src="./assets/images/img-6.jpg" alt="" /></a></li>
+        <ul id="carousel" class="elastislide-list">
+            <?php if (isset($gallery) && $gallery != NULL): 
+                    foreach($gallery as $image):?>
+            <li><a href="#"><img src="http://localhost/myhotels/assets/upload/home_gallery/<?php echo $image['vImage']?>" alt="" /></a></li>
+            <?php endforeach; endif;?>
         </ul>
     </div>
 

@@ -23,6 +23,16 @@ class Model_hotel  EXTENDS CI_Model{
     public function getnews(){
        return $this->db->get('news_events')->result_array();
     }
+    
+    public function home_gallery(){
+        return $this->db->get('home_gallery')->result_array();
+    }
+    
+    public  function search($data){
+        $this->db->where(array('iCityId'=>$data['iCity'],'eStatus'=>'Active'));
+        return $this->db->get('hotels')->result_array();
+        
+    }
 }
 
 ?>

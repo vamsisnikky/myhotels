@@ -1,5 +1,6 @@
 <!-- Footer -->
-</div>
+<?php if(isset($search) && $search == "search"){?> <!--hsgvdhn--> <?php } else{ echo '</div>' ;} ?>
+
 <div id="footer">
 	<div class="footer-inner">
     	<div class="block-1">
@@ -21,14 +22,14 @@
         </div>
         <div class="block-3">
         	<h4>We Accept</h4>
-            <div class="left"><a href="#"><img src="./assets/images/card-1.gif" alt="" class="v-mid" /></a> &nbsp;
-            <a href="#"><img src="./assets/images/card-2.gif" alt="" class="v-mid" /></a> &nbsp;
-            <a href="#"><img src="./assets/images/card-3.gif" alt="" class="v-mid" /></a> &nbsp;
-            <a href="#"><img src="./assets/images/card-4.gif" alt="" class="v-mid" /></a></div>
+            <div class="left"><a href="#"><img src="http://localhost/myhotels/assets/images/card-1.gif" alt="" class="v-mid" /></a> &nbsp;
+            <a href="#"><img src="http://localhost/myhotels/assets/images/card-2.gif" alt="" class="v-mid" /></a> &nbsp;
+            <a href="#"><img src="http://localhost/myhotels/assets/images/card-3.gif" alt="" class="v-mid" /></a> &nbsp;
+            <a href="#"><img src="http://localhost/myhotels/assets/images/card-4.gif" alt="" class="v-mid" /></a></div>
             <div class="row">&nbsp;</div>
             <h4>Follow us on</h4>
-            <a href="#"><img src="./assets/images/social-1.gif" alt="" class="v-mid" /></a> 
-            <a href="#"><img src="./assets/images/social-2.gif" alt="" class="v-mid" /></a>
+            <a href="#"><img src="http://localhost/myhotels/assets/images/social-1.gif" alt="" class="v-mid" /></a> 
+            <a href="#"><img src="http://localhost/myhotels/assets/images/social-2.gif" alt="" class="v-mid" /></a>
         </div>
         <div class="copy">&copy; Copyright 2013 Wealth Booking. All Rights Reserved. </div>
     </div>
