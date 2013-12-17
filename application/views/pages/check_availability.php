@@ -97,7 +97,7 @@
                     <a href="#" title="" class="active">2</a>
                     <a href="#" title="">3</a>
                     <a href="#" title="">4</a>
-                    <a href="#" title="">5</a>
+                    <a href="#" title="">6</a>
                     <a href="#" title="">Next  ></a>
                 </div>
             </div>
