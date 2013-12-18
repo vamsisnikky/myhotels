@@ -240,19 +240,19 @@ span.minwid{ width:48px; float:left; text-align:center;}
 .account-btm{ float: left; width: 100%;}
 .account-btm img{ position: absolute; bottom:-11px; left:66px;}
 .account-details{  border-left: 1px solid #afbbc9; border-right: 1px solid #afbbc9; border-bottom: 1px solid #afbbc9; padding: 38px 0 0 0; float:left; width: 713px;}
-.details1{ float: left; width: 637px; padding: 0 51px 0 28px; margin: 0 0 70px 0;}
+.details1{ float: left; width: 637px; padding: 0 51px 0 28px; margin: 0 0 50px 0;}
 .details1-left{ width: 178px; float: left;}
 .details1-left h3{ font-weight: bold; font-size: 15px; color: #6e7b95; }
 .details1-right{ width: 414px; float: left; padding: 0 0 0 44px; border-left:1px solid #c9d1db;}
 .detail-row{ float: left; margin: 0 0 8px 0; width:416px;}
 .detail-row label{ font-size: 12px; color: #19336b; vertical-align: middle; width: 100px; float: left;}
 .detail-row label span{ color: #d02a2a;}
-.detail-row input{ width: 311px; height: 21px; border: 1px solid #afbbc9; float: left;}
-.detail-row select{ width: 127px; height: 21px; border: 1px solid #afbbc9; float: left; margin: 0 0px 0 0;}
+.detail-row input{ width: 311px; height: 21px; border: 1px solid #afbbc9; float: left;padding:5px 10px ;margin: 3px 0px 0 0;}
+.detail-row select{ width: 235px; height: 30px; border: 1px solid #afbbc9; float: left; margin: 3px 0px 0 0;padding:5px 10px}
 .detail-row select.small1{ width: 79px; height: 21px; border: 1px solid #afbbc9; float: left; margin: 0 0px 0 9px;}
 .detail-row span{ color:#474748; font-size: 11px;}
 .detail-row input.special-input{ width:182px;}
-.imag-captcha{ float: left; padding: 0 0 0 12px; width: 26px;}
+.imag-captcha{ float: left; padding: 0 0 0 12px; width: 26px;cursor: pointer}
 .imag-captcha img{ padding: 0 0 15px 0;}
 .detail-row img{ float: left;}
 .submit-details{ background:#eff6ff; float: left; width: 681px; padding: 35px 0 24px 32px;}
@@ -417,5 +417,21 @@ span.minwid select{border:1px solid #ccc; padding:2px; width:40px; font-size:12p
     box-shadow:  0 0 15px rgba(82,168,236,0.8);
 }
 
-
+span.redprice{
+    color:#cb3904;
+}
+span.greenprice{
+    color:#117d39;
+}
+.book_button{
+    margin-left: 100px;
+}
+#vDob{
+    margin-right: 10px;
+}
+label.error{
+    width:200px;
+    color:darkred;
+    margin: 5px 0px
+}
 

@@ -1,7 +1,7 @@
 <div id="banner-cicle">
     <div class="green-circle">
         <div align="center"><span class="grn-srch">Search</span></div>
-        <form action="hotel/search" method="post">
+        <form action="search.html" method="post">
             <div class="row">
                 <select name="iCity" id="vCountry"  required>
                     <option value="" selected="" disabled="" />Select City
@@ -68,7 +68,7 @@
                         <div class="img-div">
                             <div class="hover-bordr"></div>
 
-                            <img src="http://localhost/myhotels/assets/upload/<?php echo $offers[0]['vImage']; ?>" alt="" />
+                            <img src="<?php echo base_url();?>assets/upload/<?php echo $offers[0]['vImage']; ?>" alt="" />
                         </div>
                         <h3>Special Offers</h3>
                         <h4><?php echo $offers[0]['vTitle']; ?> </h4>
@@ -79,7 +79,7 @@
             <li class="scnd">
                 <div class="img-div">
                     <div class="hover-bordr"></div>
-                    <img src="http://localhost/myhotels/assets/images/img-2.jpg" alt="" />
+                    <img src="<?php echo base_url();?>assets/images/img-2.jpg" alt="" />
                 </div>
                 <h3>Our Rooms</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur<br /> adipiscing elit.Ut ultrices leo eget <br />sem gravida ornare.</p>
@@ -87,7 +87,7 @@
             <li class="last no-margn">
                 <div class="img-div">
                     <div class="hover-bordr"></div>
-                    <img src="http://localhost/myhotels/assets/images/img-3.jpg" alt="" />
+                    <img src="<?php echo base_url();?>assets/images/img-3.jpg" alt="" />
                 </div>
                 <h3>Restaurant</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur<br /> adipiscing elit.Ut ultrices leo eget <br />sem gravida ornare.</p>
@@ -133,7 +133,7 @@
         <ul id="carousel" class="elastislide-list">
             <?php if (isset($gallery) && $gallery != NULL): 
                     foreach($gallery as $image):?>
-            <li><a href="#"><img src="http://localhost/myhotels/assets/upload/home_gallery/<?php echo $image['vImage']?>" alt="" /></a></li>
+            <li><a href="#"><img src="<?php echo base_url();?>assets/upload/home_gallery/<?php echo $image['vImage']?>" alt="" /></a></li>
             <?php endforeach; endif;?>
         </ul>
     </div>

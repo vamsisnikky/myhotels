@@ -1179,6 +1179,6 @@ body .ui-tooltip {
     border-radius: 5px;
 }
 .ui-datepicker-trigger{
-    
+    margin-top: 10px; 
     cursor: pointer;
 }

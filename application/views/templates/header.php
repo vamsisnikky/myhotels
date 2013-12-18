@@ -12,15 +12,15 @@ and open the template in the editor.
         <link href="<?php echo base_url(); ?>assets/css/jquery.fancybox.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>assets/css/elastislide.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>assets/css/elastislide.custom.css" rel="stylesheet">
-        <!--<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>-->
         <script src="<?php echo base_url(); ?>assets/js/jquery-1.9.1.js"></script>
+        <script src="<?php echo base_url(); ?>assets/js/jquery.validate.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/jquery-ui-1.10.3.custom.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/jquery.fancybox.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/modernizr.custom.17475.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/jquery.elastislide.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/main.js"></script>
     </head>
-   <?php if(isset($search) && $search == "search"){?> <body class="back1"><?php } else {?><body><?php }?>
+   <?php if(isset($search) && $search != NULL){?> <body class="back1"><?php } else {?><body><?php }?>
         <div id="main">
 
             <!-- Header -->
@@ -28,12 +28,12 @@ and open the template in the editor.
                 <div class="right-header">
                     <div class="right">
                         <div class="language">
-                            <a href="#"><img src="http://localhost/myhotels/assets/images/flag-1.gif" alt="" /></a> &nbsp;
-                            <a href="#"><img src="http://localhost/myhotels/assets/images/flag-2.gif" alt="" /></a> &nbsp;
-                            <a href="#"><img src="http://localhost/myhotels/assets/images/flag-3.gif" alt="" /></a>
+                            <a href="#"><img src="<?php echo base_url();?>/assets/images/flag-1.gif" alt="" /></a> &nbsp;
+                            <a href="#"><img src="<?php echo base_url();?>assets/images/flag-2.gif" alt="" /></a> &nbsp;
+                            <a href="#"><img src="<?php echo base_url();?>assets/images/flag-3.gif" alt="" /></a>
                         </div>
                         <div class="login-link">
-                                <a class="loginlink" href="#login" ><img src="http://localhost/myhotels/assets/images/login-icn.gif" alt="" class="v-mid" /> Login</a>
+                                <a class="loginlink" href="#login" ><img src="<?php echo base_url();?>assets/images/login-icn.gif" alt="" class="v-mid" /> Login</a>
                         </div>
                         <div style="display:none" id="login">
                             <form id="login_form" method="post" action="hotel/login">
@@ -67,7 +67,7 @@ and open the template in the editor.
                     </div>
                     <div class="nav">
                         <ul>
-                            <li class="active"><a href="http://localhost/myhotels/home.html">Home</a></li>
+                            <li class="active"><a href="<?php echo base_url();?>home.html">Home</a></li>
                             <li><a href="#">Rooms</a></li>
                             <li><a href="#">Restaurant</a></li>
                             <li><a href="#">Testimonials</a></li>
@@ -78,7 +78,13 @@ and open the template in the editor.
                     </div>
                 </div>
                 <div class="logo">
-                    <a href="#"><h1><img src="http://localhost/myhotels/assets/images/logo.png" alt="Wealth Booking" /><?php if(isset($search) && $search == "search"){?> <span class="whitebg"><?php } else {?><span><?php }?>Hey, Where are you going? </span></h1></a>
+                    <a href="#"><h1><img src="<?php echo base_url();?>assets/images/logo.png" alt="Wealth Booking" /><?php if(isset($search) && $search == "search"){?> <span class="whitebg"><?php } else {?><span><?php }?>Hey, Where are you going? </span></h1></a>
                 </div>
-                <?php if(isset($search) && $search == "search"){?> <div class="book">Hotels</div> <?php } ?>
+                <?php if(isset($search) && $search == "search"){?> 
+                <div class="book">Hotels</div> 
+                    <?php } elseif (isset($search) && $search == "room") { ?> 
+                <div class="book">Rooms</div> 
+                    <?php  }  elseif (isset($search) && $search == "book") {?>
+                 <div class="book">Booking</div> 
+                <?php  }  ?>
                 <div class="clear"></div>

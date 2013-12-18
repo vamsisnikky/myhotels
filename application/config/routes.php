@@ -43,5 +43,6 @@ $route['404_override'] = '';
 
 $route['home.html']='hotel/index';
 $route['search.html']='hotel/search';
+$route['view.html'] = 'hotel/view';
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

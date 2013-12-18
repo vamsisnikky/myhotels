@@ -5,7 +5,7 @@
         <div class="middle-left">
             <div class="mid-reserv">
                 <div class="reserv-details ">
-                    <h2> <img src="http://localhost/myhotels/assets/images/reserv-icon.png"  alt="" /> Reservation</h2>
+                    <h2> <img src="<?php echo base_url();?>assets/images/reserv-icon.png"  alt="" /> Reservation</h2>
                 </div>
                 <form action="">
                     <div class="row1 row-top">
@@ -16,10 +16,10 @@
                     <div class="row1">
                         <div class="row1-cont">
                             <input type="text" name="" value="Check in  "/>
-                            <a href="#"><img src="http://localhost/myhotels/assets/images/calender1.png"  alt="" /></a> </div>
+                            <a href="#"><img src="<?php echo base_url();?>assets/images/calender1.png"  alt="" /></a> </div>
                         <div class="row1-cont">
                             <input type="text" name="" value="Check in  "/>
-                            <a href="#"><img src="http://localhost/myhotels/assets/images/calender1.png"  alt="" /></a> </div>
+                            <a href="#"><img src="<?php echo base_url();?>assets/images/calender1.png"  alt="" /></a> </div>
                     </div>
                     <div class="row1">
                         <div class="row1-cont">
@@ -39,7 +39,7 @@
             </div>
             <div class="news-left">
                 <div class=" news1">
-                    <h3><img src="http://localhost/myhotels/assets/images/news-icon.png"  alt="" />News &amp; Events</h3>
+                    <h3><img src="<?php echo base_url();?>assets/images/news-icon.png"  alt="" />News &amp; Events</h3>
                     <ul>
                         <?php
                         if (isset($news) && $news != NULL):
@@ -69,21 +69,21 @@
         <div class="middle-right">
             <div class="hotels">
                 <?php if (isset($result) && $result != NULL): ?>
-                    <div class="hotels-head"><span class="hotel-top-pager"><a href="#" title=""><img src="http://localhost/myhotels/assets/images/pager-lft-arrow.png"  alt="" /></a> <a href="#" title=""><img src="http://localhost/myhotels/assets/images/pager-rght-arrow.png"  alt="" /></a></span><?php echo count($result); ?> matching hotels found in  Ahmedabad</div>
+                    <div class="hotels-head"><span class="hotel-top-pager"><a href="#" title=""><img src="<?php echo base_url();?>assets/images/pager-lft-arrow.png"  alt="" /></a> <a href="#" title=""><img src="<?php echo base_url();?>assets/images/pager-rght-arrow.png"  alt="" /></a></span><?php echo count($result); ?> matching hotels found in  Ahmedabad</div>
                     <?php foreach ($result as $hotel): ?>
                         <div class="hotels-block relative">
-                            <div class="hotels-block-img"><a href="#" title=""><img width="170" src="http://localhost/myhotels/assets/upload/hotel_main/<?php echo $hotel['vHotelMainImage']?>"  alt="" /></a></div>
+                            <div class="hotels-block-img"><a href="#" title=""><img width="170" src="<?php echo base_url();?>assets/upload/hotel_main/<?php echo $hotel['vHotelMainImage']?>"  alt="" /></a></div>
                             <div class="hotels-block-desc">
-                                <h3><?php echo $hotel['vHotelName'];?></h3>
+                                <h3><?php echo $hotel['vHotelName'];?>  <img width="70" height="15" src="<?php echo base_url();?>assets/images/stars-5.gif"  alt="" /></h3>
                                 <p><?php echo $hotel['vHotelAddress']; ?>&nbsp <a class="various fancybox.iframe" href="<?php echo $hotel['vMapUrl'];?>">View On Map</a></p>
                                 <p class="color-black">Phone: <?php echo $hotel['vContactNumber'] ?>&nbsp   Fax: <?php echo $hotel['vContactNumber'] ?></p>
                                 <div class="clear"></div>
                             </div>
                             <div class="hotels-block-but">
-                                <a class="button-blue view-det submit-btn" href="http://localhost/myhotels/hotel/view?iHotelId=<?php echo $hotel['iHotelId'];?>">
+                                <a class="button-blue view-det submit-btn" href="<?php echo base_url();?>hotel/view?iHotelId=<?php echo $hotel['iHotelId'];?>">
                                     View Details
-                                    <img class="brdr2" alt="" src="http://localhost/myhotels/assets/images/brdr-blue.png" height="20">
-                                    <img class="arrow2" alt="" src="http://localhost/myhotels/assets/images/arrow-right.png">
+                                    <img class="brdr2" alt="" src="<?php echo base_url();?>assets/images/brdr-blue.png" height="20">
+                                    <img class="arrow2" alt="" src="<?php echo base_url();?>assets/images/arrow-right.png">
                                 </a>
                             </div>
                         </div>
@@ -106,7 +106,7 @@
 </div>
 </div>
 <div class="bottom">
-    <div class="bottom-cont"> <a href="#"><img src="http://localhost/myhotels/assets/images/book-bg.png"  alt="" /><span>Booking Status</span></a>
+    <div class="bottom-cont"> <a href="#"><img src="<?php echo base_url();?>assets/images/book-bg.png"  alt="" /><span>Booking Status</span></a>
         <input type="text" name="input" value="Enter Your Booking Number" />
-        <a href="#" class="button-blue arrows2"><img src="http://localhost/myhotels/assets/images/arrows1.png"  alt="" /></a></div>
+        <a href="#" class="button-blue arrows2"><img src="<?php echo base_url();?>assets/images/arrows1.png"  alt="" /></a></div>
 </div>
