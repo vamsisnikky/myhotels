@@ -86,5 +86,7 @@ and open the template in the editor.
                 <div class="book">Rooms</div> 
                     <?php  }  elseif (isset($search) && $search == "book") {?>
                  <div class="book">Booking</div> 
-                <?php  }  ?>
+                <?php  } elseif (isset($search) && $search == "reservation") {?>
+                 <div class="book">Reservation</div> 
+                <?php  }  ?>  
                 <div class="clear"></div>

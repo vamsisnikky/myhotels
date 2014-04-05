@@ -38,5 +38,8 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 define('MY_EMAIL','vamsi.testmail@gmail.com');
 define('MY_PASSWORD','vamsihb0624');
+
+define('FROM_EMAIL','admin@myhotels.com');
+define('from_name','admin');
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

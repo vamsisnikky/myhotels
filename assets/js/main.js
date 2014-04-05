@@ -132,6 +132,18 @@ $(document).ready(function() {
             }
         });
     });
+    //duplicate email checking 
+    $('#vEmail').blur(function() {
+        $vEmail = this.value;
+        $.ajax({
+            url: 'checkEmail',
+            type: 'POST',
+            data: {vEmail : $vEmail},
+            success: function(data) {
+                $('#vCheck_Email').html(data);
+            }
+        });
+    });
 });
 //code for ajax country state city
 function getState(countryId) {

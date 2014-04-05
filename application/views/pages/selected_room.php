@@ -91,10 +91,10 @@
                         <th valign="middle" align="center" width="90px">Room Type</th>
                         <th valign="middle" align="center" width="58px">From</th>
                         <th valign="middle" align="center" width="51px">To</th>
+                        <th valign="middle" align="center" width="90px">Price Per Night </th>
                         <th valign="middle" align="center" width="63px"> Nights</th>
                         <th valign="middle" align="center" width="80px">Rooms</th>
                         <th valign="middle" align="center" width="147px">Occupancy </th>
-                        <th valign="middle" align="center" width="90px">Meal Plans </th>
                         <th valign="middle" align="center" width="87px">Price</th>
                     </tr>
                     <tr class="sub-tab">
@@ -104,8 +104,8 @@
                         <td valign="middle" align="center"></td>
                         <td valign="middle" align="center"></td>
                         <td valign="middle" align="center"></td>
-                        <td valign="middle" align="center"><span class="minwid">Adult</span> <span class="minwid"> Child </span> <span class="minwid">Guest</span></td>
                         <td valign="middle" align="center"></td>
+                        <td valign="middle" align="center"><span class="minwid">Adult</span> <span class="minwid"> Child </span> <span class="minwid">Guest</span></td>
                         <td valign="middle" align="center"></td>
                     </tr>
                     <?php if (isset($result) && $result != NULL && isset($hotel) && $hotel != NULL && isset($details)) : ?>
@@ -118,10 +118,11 @@
                                     <?php echo $details['checkin_year'] ?> </td>
                                 <td valign="middle" align="center"><?php echo ' ' . $details['checkout_day'] . ' ' . $details['checkout_month'] ?> <br/>
                                     <?php echo $details['checkout_year'] ?> </td>
+                                <td valign="middle" align="center">Rs <?php echo $room['fDiscountedPrice'] ?></td>
                                 <td valign="middle" align="center"><?php echo $details['total_nights']; ?></td>
                                 <td valign="middle" align="center"><?php echo count($result) ?> </td>
                                 <td valign="middle" align="center"><span class="minwid"> <?php echo $details['total_adult'] ?></span> <span class="minwid"><?php echo $details['total_child'] ?></span><span class="minwid"> 0</span></td>
-                                <td valign="middle" align="center">&nbsp;</td>
+                                
                                 <?php $details['total_price'] = $details['total_nights'] * $room['fDiscountedPrice'] ?>
                                 <td valign="middle" align="center">Rs <?php echo ' ' . $details['total_price'] ?></td>
                             </tr>

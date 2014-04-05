@@ -55,6 +55,20 @@ class Hotel extends CI_Controller {
         }
     }
 
+    public function checkEmail() {
+        $regex = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/';
+        if (isset($_POST) && $_POST['vEmail'] != NULL && preg_match($regex, $_POST['vEmail'])) {
+            $vEmail = $_POST['vEmail'];
+            $this->load->model('model_hotel');
+            $email_count = $this->model_hotel->getEmail($vEmail);
+            if ($email_count == 0) {
+                echo '<img width = "15" height = "15" src="http://localhost/myhotels/assets/images/tick.jpg"> <strong class="green"> ' . $vEmail . '</strong> is Available';
+            } else {
+                echo '<img width = "15" height = "15" src="http://localhost/myhotels/assets/images/cross.png"> <strong class="red"> ' . $vEmail . '</strong> is already used, you can login this email <a class="loginlink" href="#login" >Login</a>';
+            }
+        }
+    }
+
     public function login() {
         print_r($_POST);
     }
@@ -82,6 +96,9 @@ class Hotel extends CI_Controller {
             $checkout = strtotime($data['checkout']);
             $datediff = $checkout - $checkin;
             $days = floor($datediff / (60 * 60 * 24));
+            if ($days == 0) {
+                $days = 1;
+            }
             $data['total_days'] = $days;
             $this->session->set_userdata($data);
             $this->load->model("model_hotel");
@@ -107,7 +124,6 @@ class Hotel extends CI_Controller {
 
     public function book() {
         if (isset($_GET['iHotelRoomId']) && $_GET['iHotelRoomId'] != NULL) {
-
             $iHotelRoomId = $_GET['iHotelRoomId'];
             $news = $this->news();
             $book_details = $this->session_details();
@@ -122,8 +138,9 @@ class Hotel extends CI_Controller {
     }
 
     public function session_details() {
-
         $details = $this->session->all_userdata();
+//        echo '<pre>';
+//        print_r($details);
         $checkin = explode('-', $details['checkin']);
         $checkout = explode('-', $details['checkout']);
         $checkin_year = $checkin[0];
@@ -175,13 +192,111 @@ class Hotel extends CI_Controller {
         $arr = array('image' => $captcha['image'], 'word' => $captcha['word']);
         echo json_encode($arr);
     }
-    
-    public function signup(){
-        if(isset($_POST) && $_POST !=NULL){
+
+    public function signup() {
+        if (isset($_POST) && $_POST != NULL) {
             $data = $_POST;
+            $news = $this->news();
             $this->load->model('model_hotel');
-            $this->model_hotel->insert_customer($data);
+            $result = $this->model_hotel->insert_customer($data);
+            $this->session->set_userdata('iCustomerId', $result['customer'][0]['iCustomerId']);
+            $book_details = $this->session->all_userdata();
+            $date_details = $this->session_details();
+            if ($result['count'] === 1) {
+                $this->load->view('templates/header', array('search' => 'reservation'));
+                $this->load->view('pages/reservation', array('news' => $news, 'book_details' => $book_details, 'customer' => $result['customer'][0], 'date_details' => $date_details));
+                $this->load->view('templates/footer');
+            }
         }
+    }
+    
+    public function randomPassword() {
+        $lowercase = "qwertyuiopasdfghjklzxcvbnm";
+        $uppercase = "ASDFGHJKLZXCVBNMQWERTYUIOP";
+        $numbers = "1234567890";
+        $specialcharacters = "$@#";
+        $randomCode = "";
+        $length = 4;
+        mt_srand(crc32(microtime()));
+        $max = strlen($lowercase) - 1;
+        for ($x = 0; $x < abs($length / 2); $x++) {
+            $randomCode .= $lowercase{mt_rand(0, $max)};
+        }
+        $max = strlen($uppercase) - 1;
+        for ($x = 0; $x < abs($length / 2); $x++) {
+            $randomCode .= $uppercase{mt_rand(0, $max)};
+        }
+        $max = strlen($specialcharacters) - 1;
+        for ($x = 0; $x < abs($length / 2); $x++) {
+            $randomCode .= $specialcharacters{mt_rand(0, $max)};
+        }
+        $max = strlen($numbers) - 1;
+        for ($x = 0; $x < abs($length / 2); $x++) {
+            $randomCode .= $numbers{mt_rand(0, $max)};
+        }
+       return str_shuffle($randomCode);
+    }
+    
+    public function sendmail() {
+        $password = $this->randomPassword();
+        $this->load->library('email');
+        $this->email->set_newline("\r\n");
+        $config = array(
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_port' => 465,
+            'smtp_user' => MY_EMAIL,
+            'smtp_pass' => MY_PASSWORD,
+            'mailtype' => 'html',
+            'charset' => 'iso-8859-1',
+            'wordwrap' => TRUE
+        );
+        $this->email->initialize($config); //no need to initialize $config coz we written it in config/email.php
+        $this->email->from(FROM_EMAIL, from_name);
+        $this->email->to($_POST['email']);
+        $this->email->subject('Welcome To MyHotels Ahmedabad');
+        $this->email->message(nl2br('Good Morning..!!!
+           
+        Dear '.$_POST['name'].',
+            Greetings Of the day,
+            
+            Congratulation, You Have Succesfully Registered with us,
+            here your login credentials.
+
+            --------------------------------
+            Your Email :  '.$_POST['email'].'  
+            Your Password : '.$password.'    
+            -------------------------------- 
+            
+            you can login with this credentials.
+            
+            Thanks & Regards,
+            MyHotels,
+            Ahmedabad.
+                                                                   
+                                                                       
+                                                                                '));
+        if ($this->email->send()) {
+           $this->load->model('model_hotel');
+           $this->model_hotel->set_password($_POST['cust_id'],$password);
+        } else {
+
+            echo 'mail not sent';
+        }
+        unset($_POST['email']);
+    }
+
+    public function currency() {
+        $price = $_POST['price'];
+        $from = "INR";
+        $to = "USD";
+        $url = 'http://www.webservicex.net/CurrencyConvertor.asmx/ConversionRate?FromCurrency=' . $from . '&ToCurrency=' . $to;
+        $rate = simplexml_load_file($url);
+        echo 'Rate from ' . $from . ' to ' . $to . ' is: ' .$rate[0].'<br>' ;
+        $total_room_price = intval($price);
+        $currency_rate = floatval($rate[0]);
+        $final_price = ($currency_rate * $total_room_price);
+        return $final_price;
     }
 
 }

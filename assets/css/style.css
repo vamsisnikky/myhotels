@@ -434,4 +434,14 @@ label.error{
     color:darkred;
     margin: 5px 0px
 }
+#vCheck_Email .red{
+    color:#CE0A0A;
+}
+#vCheck_Email .green{
+    color:#2EA121;
+}
+
+.UrlInput { position: relative; }
+.UrlInput label { position: absolute; left: 3px; top: 3px; color: #999; }
+.UrlInput input { position: absolute; left: 0; top: 0; padding-left:40px; }
 

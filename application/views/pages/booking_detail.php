@@ -176,8 +176,10 @@
                                 </div>
                                 <div class="detail-row">
                                     <label>E-mail address <span>*</span></label> 
-                                    <input type="text" name="vEmail" id="vEmail" value=""/>
+                                    <input type="text" name="vEmail" id="vEmail" value=""/></br>
+
                                 </div>
+                                <div id="vCheck_Email"></div>
                             </div>
                         </div>
                         <div class="details1">
